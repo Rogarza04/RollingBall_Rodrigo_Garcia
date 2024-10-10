@@ -46,6 +46,6 @@ public class ball : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.down, distanciaChequeoSuelo);
     }
 
-    // Update is called once per frame
+    
   
 }
