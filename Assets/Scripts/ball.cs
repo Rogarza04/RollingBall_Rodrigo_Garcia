@@ -11,11 +11,12 @@ public class ball : MonoBehaviour
     bool isJump = false;
     [SerializeField] float jumpForce = 0.5f;
     bool isGrounded = false;
+    //private float currentVelocidad;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        //currentVelocidad = velocidad;
         //SaltoNormal();
         //EstaEnElSuelo();
     }
@@ -58,26 +59,57 @@ public class ball : MonoBehaviour
         }
     }
 
-//    private void condicionSalto()
-//    {
-//        if (Input.GetKey(KeyCode.N) && EstaEnElSuelo())
-//        {
-//            SaltoNormal();
-//        }
+    //    private void condicionSalto()
+    //    {
+    //        if (Input.GetKey(KeyCode.N) && EstaEnElSuelo())
+    //        {
+    //            SaltoNormal();
+    //        }
 
-//    }
+    //    }
 
-//    private void SaltoNormal()
-//    {
-//        rb.AddForce(Vector3.up * fuerza, ForceMode.Impulse);
+    //    private void SaltoNormal()
+    //    {
+    //        rb.AddForce(Vector3.up * fuerza, ForceMode.Impulse);
 
-//    }
+    //    }
 
-//    private bool EstaEnElSuelo()
-//    {
-//        return Physics.Raycast(transform.position, Vector3.down, distanciaChequeoSuelo);
-//    }
+    //    private bool EstaEnElSuelo()
+    //    {
+    //        return Physics.Raycast(transform.position, Vector3.down, distanciaChequeoSuelo);
+    //    }
 
-    
-  
+
+
+
+    //private void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+    //    switch(hit.gameObject.tag)
+    //    {
+    //        case "SpeedBoost":
+    //            velocidad = 25f;
+    //            break;
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SpeedBoost")
+        {
+
+            velocidad += 50f;
+
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "SpeedBoost")
+        {
+
+            velocidad -= 50f;
+
+
+        }
+    }
 }
