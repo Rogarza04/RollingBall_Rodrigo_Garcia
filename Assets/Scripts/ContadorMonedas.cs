@@ -16,6 +16,23 @@ public class ContadorMonedas : MonoBehaviour
     private void Update()
     {
         monedastxt.text = "Monedas: " + Cantidad.ToString();
+
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.tag == "laser")
+        {
+
+            Cantidad--;
+
+            
+
+
+        }
+
     }
 }
 

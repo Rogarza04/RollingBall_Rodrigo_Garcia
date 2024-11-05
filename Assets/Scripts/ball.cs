@@ -25,6 +25,10 @@ public class ball : MonoBehaviour
         //condicionSalto();
        
     }
+    private void FixedUpdate() 
+    { 
+
+    }
 
     void Movimiento()
     {
@@ -38,7 +42,7 @@ public class ball : MonoBehaviour
 
      
 
-        if (Physics.Raycast(transform.position, Vector3.down , 0.2f))
+        if (Physics.Raycast(transform.position, Vector3.down , 0.3f))
         {
             isGrounded = true;
         }

@@ -13,6 +13,13 @@ public class Moneda : MonoBehaviour
         
 
     }
+    private void Update()
+    {
+        if (contadormonedas.Cantidad < 0)
+        {
+            contadormonedas.Cantidad = 0;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,5 +33,6 @@ public class Moneda : MonoBehaviour
             
 
         }
+
     }
 }

@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class Rotador : MonoBehaviour
 {
-    float velocidad = 20;
+    [SerializeField] private float fuerzaR = 20;
+    [SerializeField] private Vector3 direccionR;
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<Rigidbody>().AddTorque(direccionR * fuerzaR, ForceMode.VelocityChange);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 10, 0) * velocidad * Time.deltaTime);
+       
+    }
+    void FixedUpdate()
+    {
+
+        //transform.Rotate(new Vector3(0, 10, 0) * velocidad * Time.deltaTime);
     }
 }
