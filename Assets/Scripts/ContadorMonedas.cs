@@ -9,7 +9,7 @@ public class ContadorMonedas : MonoBehaviour
 {
     
     public int Cantidad = 0;
-
+    
     [Header("TextUI")]
     public TextMeshProUGUI monedastxt;
 

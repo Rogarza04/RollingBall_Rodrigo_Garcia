@@ -11,6 +11,9 @@ public class ball : MonoBehaviour
     bool isJump = false;
     [SerializeField] float jumpForce = 0.5f;
     bool isGrounded = false;
+
+    float movimientoHorizontal;
+    float movimientoVertical;
     //private float currentVelocidad;
     // Start is called before the first frame update
     void Start()
@@ -24,26 +27,20 @@ public class ball : MonoBehaviour
     {
         Movimiento();
         //condicionSalto();
-       
+        movimientoHorizontal = Input.GetAxis("Horizontal");
+        movimientoVertical = Input.GetAxis("Vertical");
+        isJump = Input.GetKeyDown(KeyCode.Space);
+        if (isJump && isGrounded)
+        {
+
+            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+        }
     }
     private void FixedUpdate() 
-    { 
-
-    }
-
-    void Movimiento()
     {
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
-        float movimientoVertical = Input.GetAxis("Vertical");
-
         Vector3 movimiento = new Vector3(movimientoHorizontal, 0.0f, movimientoVertical);
         rb.AddForce(movimiento * velocidad);
-
-
-
-     
-
-        if (Physics.Raycast(transform.position, Vector3.down , 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, 0.3f))
         {
             isGrounded = true;
         }
@@ -51,12 +48,21 @@ public class ball : MonoBehaviour
         {
             isGrounded = false;
         }
-        isJump = Input.GetKeyDown(KeyCode.Space);
-        if (isJump && isGrounded)
-        {
+        
+    }
 
-            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-        }
+    void Movimiento()
+    {
+        
+
+        
+        
+
+
+
+     
+
+       
     }
 
     //    private void condicionSalto()
@@ -97,7 +103,7 @@ public class ball : MonoBehaviour
         if (other.tag == "SpeedBoost")
         {
 
-            velocidad += 50f;
+            velocidad += 70f;
 
 
         }
@@ -107,7 +113,7 @@ public class ball : MonoBehaviour
         if (other.tag == "SpeedBoost")
         {
 
-            velocidad -= 50f;
+            velocidad -= 70f;
 
 
         }

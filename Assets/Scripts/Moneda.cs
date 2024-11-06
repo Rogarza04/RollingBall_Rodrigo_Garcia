@@ -5,7 +5,8 @@ using TMPro;
 
 public class Moneda : MonoBehaviour
 {
-    
+    [SerializeField] private AudioClip sonidoDinero;
+    [SerializeField] private AudioManager miManager;
     public ContadorMonedas contadormonedas;
 
     void Start()
@@ -30,7 +31,8 @@ public class Moneda : MonoBehaviour
             contadormonedas.Cantidad++;
 
             Destroy(gameObject);
-            
+            miManager.ReproducirSonido(sonidoDinero);
+
 
         }
 
