@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ball : MonoBehaviour
 {
@@ -14,8 +15,9 @@ public class ball : MonoBehaviour
 
     float movimientoHorizontal;
     float movimientoVertical;
-    //private float currentVelocidad;
-    // Start is called before the first frame update
+
+    public GameObject winPanel;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -107,6 +109,15 @@ public class ball : MonoBehaviour
 
 
         }
+
+        if (other.tag == "meta")
+        {
+
+            winPanel.SetActive(true);
+            Time.timeScale = 0.1f;
+
+
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -118,4 +129,6 @@ public class ball : MonoBehaviour
 
         }
     }
+
+  
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - laser
   - SpeedBoost
+  - meta
   layers:
   - Default
   - TransparentFX
