@@ -18,6 +18,9 @@ public class ball : MonoBehaviour
 
     public GameObject winPanel;
 
+    [SerializeField] private AudioClip sonidolaser;
+    [SerializeField] private AudioManager miManager;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,7 +30,7 @@ public class ball : MonoBehaviour
     }
     void Update()
     {
-        Movimiento();
+        
         //condicionSalto();
         movimientoHorizontal = Input.GetAxis("Horizontal");
         movimientoVertical = Input.GetAxis("Vertical");
@@ -53,19 +56,7 @@ public class ball : MonoBehaviour
         
     }
 
-    void Movimiento()
-    {
-        
-
-        
-        
-
-
-
-     
-
-       
-    }
+  
 
     //    private void condicionSalto()
     //    {
@@ -117,6 +108,11 @@ public class ball : MonoBehaviour
             Time.timeScale = 0.1f;
 
 
+        }
+
+        if (other.tag == "laser")
+        {
+            miManager.ReproducirSonido(sonidolaser);
         }
     }
     private void OnTriggerExit(Collider other)
