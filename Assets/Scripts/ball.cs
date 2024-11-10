@@ -23,6 +23,7 @@ public class ball : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         rb = GetComponent<Rigidbody>();
         //currentVelocidad = velocidad;
         //SaltoNormal();
